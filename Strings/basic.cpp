@@ -4,17 +4,19 @@ using namespace std;
 
 int main()
 {
-    string str1="fam";
-    string str2="ily";
-    string str3;
-
+    string str1="nincompoop";
+    // string str2="abc";
+    // str1 = str1+str2;
+    // if(!str1.compare(str2))
+    // {
+    //     cout << "Strings are equal";
+    // }
+    // cout << str1 << endl ;
+    // str1.clear();
+    // str1.empty()
+    str1.erase(0,10);
     
-
-    str1 = str1+str2;
-
-
+        cout << str1 << endl ;
     
-
-    cout << str1;
     return 0;
 }

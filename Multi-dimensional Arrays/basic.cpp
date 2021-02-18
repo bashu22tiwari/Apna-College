@@ -5,21 +5,19 @@ using namespace std;
 
 int main()
 {
-    int n,m;
-    cout << "Enter the rows and coloumn\n" ;
-    cin >> n >> m ;
-    int array[n][m];
-    for(int i=0;i<n;i++)
+    
+    int array[5][5];
+    for(int i=0;i<5;i++)
     {
-        for(int j=0; j<m ; j++)
+        for(int j=0; j<5 ; j++)
         {
             cin >> array[i][j];
         }
     }
-    cout << "Matrix is:\n" ;
-    for(int i=0;i<n;i++)
+    
+    for(int i=0;i<5;i++)
     {
-        for(int j=0; j<m ; j++)
+        for(int j=0; j<5 ; j++)
         {
             cout << array[i][j] << " ";
         }

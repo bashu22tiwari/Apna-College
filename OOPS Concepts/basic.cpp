@@ -12,6 +12,18 @@ class student
     int age;
     bool gender;
 
+    student()
+    {
+        cout << "Default Constructor" << endl ;
+    }
+
+    student(string s , int a , int g)
+    {
+        name=s;
+        age=a;
+        gender=g;
+    }
+
     void printInfo()
     {
         cout << name << endl ;
@@ -29,19 +41,22 @@ int main()
 
     // cout << a.gender ;
 
-    student arr[3];
-    for(int i=0 ; i<3 ; i++)
-    {
-        cin >> arr[i].age ;
-        cin >> arr[i].gender ;
-        cin >> arr[i].name ;
-    }
+    // student arr[3];
+    // for(int i=0 ; i<3 ; i++)
+    // {
+    //     cin >> arr[i].age ;
+    //     cin >> arr[i].gender ;
+    //     cin >> arr[i].name ;
+    // }
 
-    for(int i=0 ; i<3 ; i++)
-    {
-        arr[i].printInfo();
-    }
+    // for(int i=0 ; i<3 ; i++)
+    // {
+    //     arr[i].printInfo();
+    // }
 
+    student a("Bashu" , 20 , 1);
+    a.printInfo();
+    student b ;
 
 
 }

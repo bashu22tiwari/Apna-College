@@ -6,102 +6,50 @@
 using namespace std;
 
 class Student {
-public:
-    int rollNumber;
-private:
-    int age;
+
+int age ;
 
 public:
+char *name;
 
-// Default Constructor
-Student()
-{
-    cout << "Constructor 1" << endl;
-}
+public:
 
-// Parameterized Constructor
-Student(int rollNumber)
+Student(int age , char *name)
 {
-    cout << "Constructor 2" << endl;
-    this -> rollNumber = rollNumber ;
-}
-
-Student(int age, int rollNumber)
-{
-    cout << "Constructor 3" << endl;
     this -> age = age ;
-    this -> rollNumber = rollNumber ;
+    this -> name = new char[strlen(name)+1];
+    strcpy(this -> name , name);
 }
 
-~Student()
+Student(Student const &s)
 {
-    cout << "Destructor Called" << endl;
+    this -> age = s.age;
+    this -> name = new char[strlen(s.name)+1];
+    strcpy(this -> name, s.name);
 }
 
-
-void display()
+void Display()
 {
-    cout << age << " " << rollNumber << endl;
-}
-
-
-
-int getAge()
-{
-    return age;
-}
-
-void setAge(int a)
-{
-    age=a;
-}
-
-int getrollNumber()
-{
-    return rollNumber;
-}
-
-void setrollNumber(int b)
-{
-    rollNumber=b;
+    cout << name << " " << age << endl;
 }
 
 };
 
 int main()
 {
+    char name[] = "abcd";
+    Student s1(20 , name);
+    s1.Display();
 
-    // Student s1(10 , 1001);
-    // cout << "s1 : ";
-    // s1.display();
-
-    // Student s2(s1);
-    // cout << "s2 : ";
-    // s2.display();
-
-    // Student s1(10,1001);
-    // Student s2(20,2002);
-
-    // Student *s3 = new Student(30,3003);
-
-    // s2=s1;
-
-    // *s3=s1;
-
-    // s1.display();
-    //  s2.display();
-    //   s3 -> display();
-
-    //   delete s3;
-
-    Student s1;
-    Student s2(10);
-    Student s3(20,1002);
-
-    Student s4(s3);
-
-    s1=s2;
-
-    Student s5(s4);
     
+
+    Student s2(s1);
+
+    s2.name[0]='x';
+
+    
+
+    s2.Display();
+
+    s1.Display();
 }

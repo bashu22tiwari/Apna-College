@@ -5,6 +5,9 @@
         },
         {
             "path": "..\\BashuTiwari-CP"
+        },
+        {
+            "path": "..\\dummy-project-ecell"
         }
     ],
     "settings": {

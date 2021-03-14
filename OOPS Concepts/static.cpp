@@ -23,6 +23,8 @@ Student()
 int Student :: totalStudents = 0 ;
 
 int main()
+
+
 {
     Student s1;
     Student s2;

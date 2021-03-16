@@ -9,6 +9,7 @@ int main()
     int t;
     cin >> t;
     int ans;
+    
     while(t--)
     {
         unsigned long long int p,a,b,c;

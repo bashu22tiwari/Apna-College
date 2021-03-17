@@ -10,7 +10,7 @@ class Node{
 public:
 
 int data;
- Node *next;
+Node *next;
 
 Node(int data)
 {
@@ -31,15 +31,19 @@ int main()
 // Statically
 
 Node n1(1);
-Node *head = &n1;
+Node *head1 = &n1;
 
 Node n2(2);
 n1.next = &n2 ;
 
 cout << n1.data << " " << n2.data << endl;
-// cout << n1.next << " " << n2.next << endl;
-// cout << n1.next << endl ;
-cout << (n1.next)->data << endl;
-cout << head->data << endl;
+
+// Dynamically
+
+Node *n3 = new Node(10);
+Node **head2 = &n3;
+Node *n4 = new Node(20);
+
+n3->next = &*n4;
 
 }

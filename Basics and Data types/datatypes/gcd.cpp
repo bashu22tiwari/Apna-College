@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <cstring>
 #include <vector>
-#include <boost/math/common_factor.hpp> 
 using namespace std;
 
 int main()

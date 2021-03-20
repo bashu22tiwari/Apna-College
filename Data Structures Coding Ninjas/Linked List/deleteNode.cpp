@@ -42,6 +42,44 @@ Node *takeInput()
     return head;
 }
 
+Node *deleteNode(Node *head)
+{
+    // if(position==0)
+    // {
+    //     return head->next;
+    //     delete head;
+    // }
+    // else{
+    // int i=0;
+    // Node *temp = head ;
+    // while(i<=(position-2) && temp!=NULL)
+    // {
+    //     temp = temp->next;
+    //     i++;
+    // }
+    // if(temp != NULL){
+    // Node *a = temp->next;
+    // temp->next = a->next;
+    // delete a; 
+    // return head;
+    // }
+    // else{
+    //     return head;
+    // }
+    // }
+    Node *temp = head;
+    Node *a;
+    while(temp->next !=NULL)
+    {
+        a=temp;
+        temp = temp->next;
+    }
+
+    a->next = NULL ;
+    delete temp;
+    return head;
+}
+
 void print(Node *head)
 {
     Node *temp = head;
@@ -54,44 +92,9 @@ void print(Node *head)
 
 }
 
-Node *insertNode(Node *head, int data)
-{
-Node *newNode = new Node(data) ;
-Node *temp = head ;
-if(position == 0)
-{
-    newNode->next = temp;
-    return newNode;
-}
-else{
-int i=0;
-while(i<=(position-2) && temp!=NULL)
-{
-    temp = temp->next;
-    i++;
-}
-if(temp !=NULL){
-newNode->next = temp->next;
-temp->next = newNode;
-return head;
-}
-else{
-    return head;
-}
-
-while(temp->next != NULL)
-{
-    temp = temp->next;
-}
-temp->next = newNode;
-return head;
-}
-
-}
-
 int main()
 {
     Node *head = takeInput();
-    head = insertNode(head ,100 );
+    head = deleteNode(head);
     print(head);
 }

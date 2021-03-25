@@ -5,6 +5,16 @@
 #include <vector>
 using namespace std;
 
+class Pair extends Node {
+ 
+ public:
+
+    Node *head;
+    Node *tail;
+
+};
+
+
 class Node{
 public:
 int data;
@@ -42,33 +52,34 @@ Node *takeInput()
     return head;
 }
 
-void printingMid(Node *head)
+Pair pairReversing(Node *head)
 {
-    Node *slow = head;
-    Node *fast = head->next;
-
-    while(1)
+    if(head==NULL || head->next==NULL)
     {
-
-        if(fast==NULL)
-        {
-            cout << slow->data;
-            break;
-        }
-        if(fast->next==NULL)
-        {
-            cout << slow->data;
-            break;
-        }
-        
-        slow = slow->next;
-        fast = fast->next->next;
-
-        
+        Pair ans;
+        ans.head = head;
+        ans.tail = head;
+        return ans;
     }
 
+    Pair smallAnswer = pairReversing(head->next);
+
+    smallAnswer.tail->next=head;
+    head->next=NULL;
+
+    Pair ans;
+    ans.head=smallAnswer.head;
+    ans.tail=head;
+
+    return ans;
     
 }
+
+Node *reverse(Node *head)
+{
+    return pairReversing(head).head;
+}
+
 
 void print(Node *head)
 {
@@ -86,6 +97,7 @@ int main()
 {
     Node *head = takeInput();
     
-    // print(head);
-    printingMid(head);
+    head = reverse(head);
+
+    print(head);
 }

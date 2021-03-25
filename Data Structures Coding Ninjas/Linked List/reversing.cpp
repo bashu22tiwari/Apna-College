@@ -5,6 +5,7 @@
 #include <vector>
 using namespace std;
 
+
 class Node{
 public:
 int data;
@@ -42,33 +43,27 @@ Node *takeInput()
     return head;
 }
 
-void printingMid(Node *head)
+Node *reversing(Node *head)
 {
-    Node *slow = head;
-    Node *fast = head->next;
-
-    while(1)
+    if(head==NULL || head->next==NULL)
     {
-
-        if(fast==NULL)
-        {
-            cout << slow->data;
-            break;
-        }
-        if(fast->next==NULL)
-        {
-            cout << slow->data;
-            break;
-        }
-        
-        slow = slow->next;
-        fast = fast->next->next;
-
-        
+        return head;
     }
+
+    Node *smallAnswer = reversing(head->next);
+    Node *a = smallAnswer;
+    while(a->next!=NULL)
+    {
+        a=a->next;
+    }
+
+    a->next=head;
+    head->next=NULL;
+    return smallAnswer;
 
     
 }
+
 
 void print(Node *head)
 {
@@ -86,6 +81,7 @@ int main()
 {
     Node *head = takeInput();
     
-    // print(head);
-    printingMid(head);
+    head = reversing(head);
+
+    print(head);
 }

@@ -4,3 +4,12 @@
 #include <cstring>
 #include <vector>
 using namespace std;
+
+
+class stackUsingArray{
+
+int *data;
+int nextIndex;
+int capacity;
+
+};

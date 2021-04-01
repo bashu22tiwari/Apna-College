@@ -14,10 +14,10 @@ int capacity;
 
 public:
 
-stackUsingArray(int sizeOfStack){
-    data = new int[sizeOfStack];
+stackUsingArray(){
+    data = new int[4];
     nextIndex=0;
-    capacity=sizeOfStack;
+    capacity=4;
 }
 
 // To find size of Stack
@@ -33,8 +33,15 @@ bool isEmpty(){
 // To Insert any element
 void push(int element){
     if(nextIndex==capacity){
-        cout << "Stack Full\n";
-        return;
+        int *newData = new int[2*capacity];
+        for(int i=0 ; i<capacity ; i++)
+        {
+            newData[i]=data[i];
+        }
+
+        capacity *= 2;
+        delete [] data;
+        data=newData; 
     }
 
     data[nextIndex]=element;
@@ -69,7 +76,7 @@ int top()
 
 int main()
 {
-    stackUsingArray s1(3);
+    stackUsingArray s1;
     s1.push(10);
     s1.push(20);
     s1.push(30);

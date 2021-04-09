@@ -61,7 +61,7 @@ class QueueUsingSinglePointer{
             cout << "Queue is Empty\n";
         }
         else{
-        for(int i=front ; i<=rear ; i++){
+        for(int i=front+1 ; i<=rear ; i++){
             cout << data[i] << " " ;
         }
         cout << "\n";

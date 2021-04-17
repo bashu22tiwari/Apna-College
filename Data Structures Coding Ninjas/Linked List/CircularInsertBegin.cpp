@@ -72,10 +72,34 @@ void CircularLLTraversal(Node *head){
 
 }
 
+Node *InsertAtBegin(Node *head, int element){
+
+    Node *newNode = new Node(element);
+
+    Node *temp = head;
+
+    if(head==NULL){
+        newNode->next = newNode;
+        return newNode;
+    }
+
+    while(temp->next!=head){
+        temp = temp->next ;
+    }
+
+    newNode->next = head;
+    temp->next = newNode;
+    return newNode;
+}
+
 
 int main(){
     Node *n1 = takeInput();
     
+    CircularLLTraversal(n1);
+
+    n1 = InsertAtBegin(n1,60);
+
     CircularLLTraversal(n1);
 
 }

@@ -46,11 +46,15 @@ Node *takeInput()
 Node *rotateList(Node *head, int n){
     Node *temp = head;
     Node *tail = head;
+    while(tail->next!=NULL){
+        tail=tail->next;
+    }
 
     while(n>1){
         temp = temp->next;
         n--;
     }
+
     Node *curr = temp->next;
     temp->next=NULL;
     tail->next =head;
